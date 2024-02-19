@@ -30,23 +30,22 @@ multiqc .
 
 ```
 cd ..
-mkdir final
 bash trimm.sh
 ```
 
 3. Run multiqc on trimmed reads again to check quality of final reads. 
 
 ```
-cd final
+cd reports
 multiqc . 
 ```
 
 4. If not satisfied with the quality, repeat Step2 with different flags in ``trimm.sh``. 
 
-5. To check and remove any contamination in the trimmed files, execute ``___.sh`` script. 
+5. To check and remove any contamination in the trimmed files, execute ``bbduk.sh`` script. 
 
 ```
-Bash script 
+bash bbduk.sh 
 ``` 
 ```
 conda deactivate
