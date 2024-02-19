@@ -16,10 +16,10 @@ conda install -c bioconda fastqc multiqc fastp bbmap
 
 # Steps to execute: 
 
-1. Initial raw read quality control: 
+1. Initial raw read quality control
 
 Place all raw reads in directory ```raw_reads```.
-Run fastqc with multiqc for intial raw read quality control to check for any discrepancies. 
+Run fastqc with multiqc on intial raw reads to check initial quality (look for discrepancies b/w tools). 
 
 ```python 
 cd raw_reads
@@ -28,15 +28,13 @@ multiqc .
 ```
 2. If no major discrepancies are found, use ``trimm.sh`` script to perform trimming on the fastq files.
 
-Create directory for trimmed reads. 
-
 ```python
 cd ..
 mkdir final
 bash trimm.sh
 ```
 
-3. Run multiqc on trimmed reads again to check the quality of the trimmed reads. 
+3. Run multiqc on trimmed reads again to check quality of final reads. 
 
 ```python
 cd final
