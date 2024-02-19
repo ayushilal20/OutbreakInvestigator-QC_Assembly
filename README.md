@@ -18,7 +18,7 @@ conda install -c bioconda fastqc multiqc fastp bbmap
 
 1. Initial raw read quality control
 
- Place all raw reads in directory ```raw_reads```.
+ Place all raw reads in directory ``raw_reads``.
  Run fastqc with multiqc on intial raw reads to check initial quality (look for discrepancies b/w tools). 
 
 ```python 
@@ -60,7 +60,7 @@ Quality Control is crucial prior to any downstream analysis [Garbage in Garbage 
  2. velvet: https://github.com/dzerbino/velvet
  3. abyss: 
 
-```python
+```
 conda create -n teamf_asm -y 
 conda activate teamf_asm
 conda install bioconda::skesa bioconda::velvet -y
@@ -70,18 +70,33 @@ conda install bioconda::skesa bioconda::velvet -y
 1. Assembly with skesa.
 
  Reads are assumed to be in ``final`` folder aftr QC.
- Assembled contigs will be placed in ```skesa_asm```.
+ Assembled contigs will be placed in ``skesa_asm``.
  
  ```
 sh skesa.sh
 ```
 
-1. Assembly with velvet.
+2. Assembly with velvet.
 
  Reads are assumed to be in ``final`` folder aftr QC.
- Assembled contigs will be placed in ```velvet_asm```.
+ Assembled contigs will be placed in ``velvet_asm``.
  
 ```
 sh velvet.sh
 ```
+
+3. Assembly with abyss.
+
+```
+conda deactivate
+```
+
+4. Creating separate conda env for filtering contigs; filtered contigs for skesa will be placed in ``filtered_skesa_asm``, filtered contigs for velvet will be placed in ``filtered_velvet_asm``,
+```
+conda create -n "pythonold" python=2.7 -y
+conda activate pythonold
+conda install biopython -y
+sh filter.sh
+```
+
  
