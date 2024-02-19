@@ -14,7 +14,7 @@ conda activate teamf
 conda install -c bioconda fastqc multiqc fastp bbmap
 ```
 
-# Steps to execute: 
+## Steps to execute: 
 
 1. Initial raw read quality control
 
@@ -65,7 +65,7 @@ conda create -n teamf_asm -y
 conda activate teamf_asm
 conda install bioconda::skesa bioconda::velvet -y
 ```
-# Steps to execute: 
+## Steps to execute: 
 
 1. Assembly with skesa.
 
