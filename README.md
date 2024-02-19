@@ -1,7 +1,4 @@
-# F1
-
-# Pipeline to determine the genome for a microbial outbreak: 
-## For the procedure we subdivided the tasks which are: 
+# F1 : Pipeline for Read QC and Assmebly of genome during a microbial outbreak: 
 
 ## 1. Quality Control and Trimmming: 
 ## Pre-requisites: 
