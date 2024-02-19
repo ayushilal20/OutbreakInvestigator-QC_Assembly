@@ -8,7 +8,7 @@
  3. Fastp: This will help with the trimming portion (https://academic.oup.com/bioinformatics/article/34/17/i884/5093234). 
  4. BBduk: This is used to remove the Phix contamination that might be present in the reads (https://sourceforge.net/projects/bbmap/). 
 
-```python
+```
 conda create -n teamf
 conda activate teamf
 conda install -c bioconda fastqc multiqc fastp bbmap
@@ -21,14 +21,14 @@ conda install -c bioconda fastqc multiqc fastp bbmap
  Place all raw reads in directory ``raw_reads``.
  Run fastqc with multiqc on intial raw reads to check initial quality (look for discrepancies b/w tools). 
 
-```python 
+``` 
 cd raw_reads
 fastqc *
 multiqc . 
 ```
 2. If no major discrepancies are found, use ``trimm.sh`` script to perform trimming on the fastq files.
 
-```python
+```
 cd ..
 mkdir final
 bash trimm.sh
@@ -36,7 +36,7 @@ bash trimm.sh
 
 3. Run multiqc on trimmed reads again to check quality of final reads. 
 
-```python
+```
 cd final
 multiqc . 
 ```
@@ -45,14 +45,15 @@ multiqc .
 
 5. To check and remove any contamination in the trimmed files, execute ``___.sh`` script. 
 
-```python  
-
+```
 Bash script 
-conda deactivate
 ``` 
+```
+conda deactivate
+```
 Quality Control is crucial prior to any downstream analysis [Garbage in Garbage Out]. 
 
-## 2. Assembly 
+## 2. Genome Assembly 
 
 ## Pre-requisites: 
  Conda environment with following packages (Selected Assemblers for Genome Assembly)::
@@ -86,6 +87,9 @@ sh velvet.sh
 ```
 
 3. Assembly with abyss.
+
+```
+```
 
 ```
 conda deactivate
