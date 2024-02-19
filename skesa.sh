@@ -1,10 +1,6 @@
 #!/bin/bash
 
-conda create -n assembly -y
-conda activate assembly
-conda install bioconda::skesa -y
-
-reads_dir=data-after-fastp-PhiX-removal
+reads_dir=final
 assembly_dir=skesa_asm
 
 for r1 in "$reads_dir"/*_R1.fq.gz; do
@@ -17,5 +13,3 @@ for r1 in "$reads_dir"/*_R1.fq.gz; do
         echo "$r2 not found" >&2
     fi
 done
-
-conda deactivate
