@@ -22,6 +22,7 @@ conda install -c bioconda fastqc multiqc fastp bbmap
  Run fastqc with multiqc on intial raw reads to check initial quality (look for discrepancies b/w tools). 
 
 ``` 
+mkdir raw_reads
 cd raw_reads
 fastqc *
 multiqc . 
