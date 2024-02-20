@@ -15,27 +15,23 @@ conda deactivate
 input_dir="$1"
 output_dir="$2"
 
+cd $input_dir
+fastqc *
+multiqc .
+
+cd ..
+bash trimm.sh
+cd reports
+multiqc .
+
+# phix removal
+bash bbduk.sh
+
 for file in "$input_dir"/*R1*; do
 	R1=$(basename -- "$file")
 	R2="${filename/R1/R2}"
 	# isolate name saved as $isolate
 	isolate="${R1:0:8}"
-
-	# create output dirs for fastp, skesa and quast
-	mkdir -p "$output_dir"/{fastp,skesa,quast}/$isolate
-
-	#trimming with fastp
-	fastp -w 6 \
-	--qualified_quality_phred 30 \
-	--unqualified_percent_limit 20 \
-	--dont_eval_duplication \
-	-i $R1 -I $R2 \
-	-o "$output_dir/fastp_$isolate/trimmed_${R1}" \
-	-O "$output_dir/fastp_$isolate/trimmed_${R2}" \
-	-h "./reports/${isolate}_fastp_report.html" \
-	-j "./reports/${isolate}_fastp.json" -z 6
-
-	#bbduk
 
 	#assembly with skesa
 	skesa \
@@ -52,6 +48,6 @@ for file in "$input_dir"/*R1*; do
 		-o "$output_dir/skesa_$isolate/filtered_$isolate.fna"
 	conda deactivate
 
-	#quality with quast
-
 done
+
+
