@@ -31,7 +31,6 @@ conda install -c bioconda fastqc multiqc fastp bbmap
  Run fastqc with multiqc on intial raw reads to check initial quality (look for discrepancies b/w tools). 
 
 ``` 
-mkdir raw_reads
 cd raw_reads
 fastqc *
 multiqc . 
@@ -57,8 +56,6 @@ multiqc .
 ```
 cd ..
 bash bbduk.sh 
-``` 
-```
 conda deactivate
 ```
 Quality Control is crucial prior to any downstream analysis [Garbage in Garbage Out]. 
@@ -103,9 +100,6 @@ sh velvet.sh
 
 ```
 sh abyss.sh
-```
-
-```
 conda deactivate
 ```
 
