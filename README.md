@@ -93,7 +93,8 @@ sh skesa.sh
 sh velvet.sh
 ```
 
-3. Assembly with abyss and filter with seqkit
+3. Assembly with abyss and filter with seqkit.
+
  Reads are assumed to be in ``trimmed_phix_unmatched`` folder aftr QC.
  Assembled and filtered contigs will be placed in ``filteredab``.
 
