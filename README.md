@@ -1,11 +1,11 @@
 # F1 : Pipeline for Read QC and Genome Assembly during a microbial outbreak
 
-# Option 1: Run entire pipeline(one tool per stage; chosen after analysis) in 1 step .
+## Option 1: Run entire pipeline(one tool per stage; chosen after analysis) in 1 step .
 
 ```
 sh pipeline.sh
 ```
-# Option2: Run individual steps, with multiple tools at each step.
+## Option2: Run individual steps, with multiple tools at each step.
 
 ## 1. Quality Control and Trimming: 
 ## Pre-requisites: 
