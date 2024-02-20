@@ -59,7 +59,7 @@ Quality Control is crucial prior to any downstream analysis [Garbage in Garbage 
  Conda environment with following packages (Selected Assemblers for Genome Assembly)::
  1. skesa: https://github.com/ncbi/SKESA
  2. velvet: https://github.com/dzerbino/velvet
- 3. abyss: 
+ 3. abyss: https://github.com/bcgsc/abyss
 
 ```
 conda create -n teamf_asm -y 
@@ -87,8 +87,11 @@ sh velvet.sh
 ```
 
 3. Assembly with abyss.
+ Reads are assumed to be in ``./trim`` folder aftr QC.
+ Assembled and filtered contigs will be placed in ``filteredab``.
 
 ```
+sh abyss.sh
 ```
 
 ```
