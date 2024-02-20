@@ -1,6 +1,6 @@
 #!/bin/bash
 
-reads_dir=final
+reads_dir=trimmed_phix_unmatched
 assembly_dir=velvet_asm
 
 for r1 in "$reads_dir"/*_R1.fq.gz; do
