@@ -70,7 +70,7 @@ conda install bioconda::skesa bioconda::velvet -y
 
 1. Assembly with skesa.
 
- Reads are assumed to be in ``final`` folder aftr QC.
+ Reads are assumed to be in ``trimmed_phix_unmatched`` folder aftr QC.
  Assembled contigs will be placed in ``skesa_asm``.
  
  ```
@@ -79,7 +79,7 @@ sh skesa.sh
 
 2. Assembly with velvet.
 
- Reads are assumed to be in ``final`` folder aftr QC.
+ Reads are assumed to be in ``trimmed_phix_unmatched`` folder aftr QC.
  Assembled contigs will be placed in ``velvet_asm``.
  
 ```
