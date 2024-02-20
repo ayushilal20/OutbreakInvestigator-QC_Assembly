@@ -55,6 +55,7 @@ multiqc .
 5. To check and remove any contamination in the trimmed files, execute ``bbduk.sh`` script. 
 
 ```
+cd ..
 bash bbduk.sh 
 ``` 
 ```
