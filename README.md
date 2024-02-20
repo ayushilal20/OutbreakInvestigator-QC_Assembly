@@ -64,7 +64,7 @@ Quality Control is crucial prior to any downstream analysis [Garbage in Garbage 
 ```
 conda create -n teamf_asm -y 
 conda activate teamf_asm
-conda install bioconda::skesa bioconda::velvet -y
+conda install bioconda::skesa bioconda::velvet bioconda::abyss bioconda::seqkit -y
 ```
 ## Steps to execute: 
 
@@ -86,7 +86,7 @@ sh skesa.sh
 sh velvet.sh
 ```
 
-3. Assembly with abyss.
+3. Assembly with abyss and filter with seqkit
  Reads are assumed to be in ``./trim`` folder aftr QC.
  Assembled and filtered contigs will be placed in ``filteredab``.
 
@@ -105,5 +105,3 @@ conda activate pythonold
 conda install biopython -y
 sh filter.sh
 ```
-
- 
