@@ -87,7 +87,7 @@ sh velvet.sh
 ```
 
 3. Assembly with abyss and filter with seqkit
- Reads are assumed to be in ``./trim`` folder aftr QC.
+ Reads are assumed to be in ``trimmed_phix_unmatched`` folder aftr QC.
  Assembled and filtered contigs will be placed in ``filteredab``.
 
 ```
@@ -98,10 +98,11 @@ sh abyss.sh
 conda deactivate
 ```
 
-4. Creating separate conda env for filtering contigs; filtered contigs for skesa will be placed in ``filtered_skesa_asm``, filtered contigs for velvet will be placed in ``filtered_velvet_asm``,
+4. Creating separate conda env for filtering contigs from velvet and skesa; filtered contigs for skesa will be placed in ``filtered_skesa_asm``, filtered contigs for velvet will be placed in ``filtered_velvet_asm``,
 ```
 conda create -n "pythonold" python=2.7 -y
 conda activate pythonold
 conda install biopython -y
 sh filter.sh
+conda deactivate
 ```
