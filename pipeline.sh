@@ -41,8 +41,8 @@ for file in "$input_dir"/*R1*; do
 	 
 	#assembly with skesa
 	skesa \
-	--fastq "$output_dir/bbduk_$isolate/matched_${R1}" \
-	"$output_dir/bbduk_$isolate/matched_${R2}" \
+	--fastq "$output_dir/bbduk_$isolate/unmatched_${R1}" \
+	"$output_dir/bbduk_$isolate/unmatched_${R2}" \
 	--contigs_out "$output_dir/skesa_$isolate/$isolate.fasta" \
 	1> "$output_dir/skesa_$isolate"/skesa.stdout.txt \
 	2> "$output_dir/skesa_$isolate"/skesa.stderr.txt
