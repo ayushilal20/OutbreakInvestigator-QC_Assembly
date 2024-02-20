@@ -18,7 +18,6 @@ else
     echo "Folder '$FOLDER_NAME' already exists."
 fi
 
-script_dir=$(dirname "$0")
 cd raw_reads
 
 R1="" 
