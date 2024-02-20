@@ -13,8 +13,8 @@ for i in "${isolates[@]}"; do
 	abyss \
 		-k 33 \
 		-o ./abyss/"$i".fasta \
-		./trim/unmatched_trimmed_"$i"_R1.fq.gz \
-		./trim/unmatched_trimmed_"$i"_R2.fq.gz
+		./trimmed_phix_unmatched/unmatched_trimmed_"$i"_R1.fq.gz \
+		./trimmed_phix_unmatched/unmatched_trimmed_"$i"_R2.fq.gz
 done
 
 for i in "${isolates[@]}"; do
