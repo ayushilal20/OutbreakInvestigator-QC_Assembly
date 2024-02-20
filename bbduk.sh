@@ -9,15 +9,6 @@ else
     echo "Folder '$FOLDER_NAME' already exists."
 fi
 
-# Check if the folder does not exist
-FOLDER_NAME="trimmed_phix_matched"
-if [ ! -d "$FOLDER_NAME" ]; then
-    mkdir "$FOLDER_NAME"
-    echo "Folder '$FOLDER_NAME' created."
-else
-    echo "Folder '$FOLDER_NAME' already exists."
-fi
-
 RUN_PATH="trimmed"
 OUT_PATH_1="trimmed_phix_unmatched"
 OUT_PATH_2="trimmed_phix_matched"
