@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #create conda env 'qual_eval' with python=3.7.12
 conda create -n qual_eval python=3.7.12 -y
 	
