@@ -1,6 +1,7 @@
 # F1 : Pipeline for Read QC and Genome Assembly during a microbial outbreak
 
-```git clone https://github.gatech.edu/comgenomics2024/F1.git
+```
+git clone https://github.gatech.edu/comgenomics2024/F1.git
 cd F1
 ```
 
