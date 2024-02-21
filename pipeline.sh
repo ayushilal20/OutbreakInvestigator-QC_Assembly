@@ -1,16 +1,16 @@
 #!/bin/bash
 source ~/.bash_profile
 
-# environment 2
-conda create -n "pythonold" python=2.7 -y
-conda activate pythonold
-conda install biopython -y
-conda deactivate
-
 # environment 1
 conda create -n teamf -y
 conda activate teamf
 conda install -c bioconda fastp bbmap skesa -y
+conda deactivate
+
+# environment 2
+conda create -n "pythonold" python=2.7 -y
+conda activate pythonold
+conda install biopython -y
 conda deactivate
 
 # environment 3
@@ -68,19 +68,11 @@ for file in "$input_dir"/*R1*; do
 	conda deactivate
 	
 	#quality evaluation with quast
-	
 	conda activate qual_eval
-
-	# Path to the directory containing the filtered assemblies
-	filtered_asm_dir="$output_dir/skesa/$isolate/filtered_$isolate.fna"
-	# Path to the output directory for Quast results
-	quast_output_dir="$output_dir/quast/$isolate"
 	
 	# Run Quast filtered_assemblies
-	for assembly in "$filtered_asm_dir"/*.fna; do
-		assembly_name=$(basename -- "$assembly" .fna)
-		quast.py -o "quast_output_dir" "$assembly"
-	done
+	quast.py -o "$output_dir/quast/$isolate" "$output_dir/skesa/$isolate/filtered_$isolate.fna"
+
 	# Deactivate the 'qual_eval' environment
 	conda deactivate
 done
