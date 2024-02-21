@@ -1,4 +1,5 @@
 #!/bin/bash
+source ~/.bash_profile
 
 # environment 2
 conda create -n "pythonold" python=2.7 -y
@@ -12,18 +13,16 @@ conda activate teamf
 conda install -c bioconda fastp bbmap skesa -y
 conda deactivate
 
+# environment 3
+#create conda env 'qual_eval' with python=3.7.12
+conda create -n qual_eval python=3.7.12 -y
+conda activate qual_eval
+pip install quast matplotlib
+conda deactivate
+
 # commandline usage: sh pipeline.sh [input_dir] [output_dir]
 input_dir="$1"
 output_dir="$2"
-
-#create conda env 'qual_eval' with python=3.7.12
-conda create -n qual_eval python=3.7.12 -y
-	
-# Activate the 'qual_eval' environment
-conda activate qual_eval
-
-# Install required packages
-pip install quast matplotlib
 
 for file in "$input_dir"/*R1*; do
 	R1=$(basename -- "$file")
@@ -47,8 +46,8 @@ for file in "$input_dir"/*R1*; do
 	-j "$output_dir/reports/${isolate}/${R2}_fastp.json" -z 6
 
 	#bbduk
-	 bbduk.sh in="$output_dir/fastp/$isolate/trimmed_${R1}" out="$output_dir/bbduk/$isolate/unmatched_${R1}" outm="$output_dir/bbduk/$isolate/matched_${R1}" ref=phix k=31 hdist=1 overwrite=t stats="$output_dir/bbduk/$isolate/${R1}_stats.txt" 
-    	 bbduk.sh in="$output_dir/fastp/$isolate/trimmed_${R2}" out="$output_dir/bbduk/$isolate/unmatched_${R2}" outm="$output_dir/bbduk/$isolate/matched_${R2}" ref=phix k=31 hdist=1 overwrite=t stats="$output_dir/bbduk/$isolate/${R2}_stats.txt" 
+	sh bbduk.sh in="$output_dir/fastp/$isolate/trimmed_${R1}" out="$output_dir/bbduk/$isolate/unmatched_${R1}" outm="$output_dir/bbduk/$isolate/matched_${R1}" ref=phix k=31 hdist=1 overwrite=t stats="$output_dir/bbduk/$isolate/${R1}_stats.txt" 
+    	sh bbduk.sh in="$output_dir/fastp/$isolate/trimmed_${R2}" out="$output_dir/bbduk/$isolate/unmatched_${R2}" outm="$output_dir/bbduk/$isolate/matched_${R2}" ref=phix k=31 hdist=1 overwrite=t stats="$output_dir/bbduk/$isolate/${R2}_stats.txt" 
 	 
 	#assembly with skesa
 	skesa \
@@ -69,22 +68,20 @@ for file in "$input_dir"/*R1*; do
 	conda deactivate
 	
 	#quality evaluation with quast
+	
+	conda activate qual_eval
 
 	# Path to the directory containing the filtered assemblies
-	filtered_asm_dir="$output_dir/skesa_$isolate"
-
+	filtered_asm_dir="$output_dir/skesa/$isolate/filtered_$isolate.fna"
 	# Path to the output directory for Quast results
-	quast_output_dir="$output_dir/qual_eval"
-
-	# Create the output directory if it doesn't exist
-	mkdir -p "$quast_output_dir"
+	quast_output_dir="$output_dir/quast/$isolate"
 	
-	# Run Quast for each assembly in the filtered_asm_dir
-	
+	# Run Quast filtered_assemblies
 	for assembly in "$filtered_asm_dir"/*.fna; do
 		assembly_name=$(basename -- "$assembly" .fna)
-		quast.py -o "$quast_output_dir/$assembly_name" "$assembly"
+		quast.py -o "quast_output_dir" "$assembly"
 	done
+	conda deactivate
 done
 
 # Deactivate the 'qual_eval' environment
