@@ -3,7 +3,7 @@
 # environment 1
 conda create -n teamf -y
 conda activate teamf
-conda install -c bioconda fastqc multiqc fastp bbmap skesa -y
+conda install -c bioconda fastp bbmap skesa -y
 
 # environment 2
 conda create -n "pythonold" python=2.7 -y
