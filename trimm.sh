@@ -41,4 +41,3 @@ done
 echo "Script is running in the directory: $(pwd)"
 
 # Return to the original directory if necessary
-cd - > /dev/null  # This changes back to the previous directory, suppressing the output
