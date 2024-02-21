@@ -8,7 +8,7 @@ conda install -c bioconda fastp bbmap skesa -y
 conda deactivate
 
 # environment 2
-conda create -n "pythonold" python=2.7 -y
+conda create -n pythonold python=2.7 -y
 conda activate pythonold
 conda install biopython -y
 conda deactivate
