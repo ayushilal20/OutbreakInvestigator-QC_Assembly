@@ -95,6 +95,8 @@ sh velvet.sh
 
 3. Assembly with abyss and filter with seqkit.
 
+Please mention all sample names in the file abyss.sh
+
  Reads are assumed to be in ``trimmed_phix_unmatched`` folder aftr QC.
  Assembled and filtered contigs will be placed in ``filteredab``.
 
