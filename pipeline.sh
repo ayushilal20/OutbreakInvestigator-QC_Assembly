@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # environment 1
-conda create -n teamf
+conda create -n teamf -y
 conda activate teamf
 conda install -c bioconda fastqc multiqc fastp bbmap skesa -y
 
