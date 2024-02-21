@@ -39,5 +39,3 @@ done
 
 # Output the current directory
 echo "Script is running in the directory: $(pwd)"
-
-# Return to the original directory if necessary
