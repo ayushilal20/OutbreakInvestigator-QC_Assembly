@@ -1,3 +1,12 @@
+#create conda env 'qual_eval' with python=3.7.12
+conda create -n qual_eval python=3.7.12 -y
+	
+# Activate the 'qual_eval' environment
+conda activate qual_eval
+
+# Install required packages
+pip install quast matplotlib
+
 # Set the output directory
 output_dir="./quast_results"
 
@@ -18,3 +27,6 @@ for tool in "${tools[@]}"; do
         quast.py -o "$tool_output_dir/$assembly_name" "$assembly"
     done
 done
+
+# Deactivate the 'qual_eval' environment
+conda deactivate
