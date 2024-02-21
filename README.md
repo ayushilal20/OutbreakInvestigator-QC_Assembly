@@ -14,7 +14,6 @@ sh pipeline.sh [input_dir] [output_dir]
  Conda environment with following packages (Selected Tools for QC after benchmarking)::
  1. FastQc: This is required for the quality control step (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/). 
  2. MultiQc: This is required for generating an overall of the report that are present (https://multiqc.info/). 
- 2a. Might additionally need : ``conda install conda-forge::importlib-metadata`` .
  4. Fastp: This will help with the trimming portion (https://academic.oup.com/bioinformatics/article/34/17/i884/5093234). 
  5. BBduk: This is used to remove the Phix contamination that might be present in the reads (https://sourceforge.net/projects/bbmap/). 
 
@@ -46,7 +45,7 @@ bash trimm.sh
 3. Run multiqc on trimmed reads again to check quality of final reads. 
 
 ```
-cd reports
+cd trimmed
 multiqc . 
 ```
 
