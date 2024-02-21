@@ -81,8 +81,6 @@ for file in "$input_dir"/*R1*; do
 		assembly_name=$(basename -- "$assembly" .fna)
 		quast.py -o "quast_output_dir" "$assembly"
 	done
+	# Deactivate the 'qual_eval' environment
 	conda deactivate
 done
-
-# Deactivate the 'qual_eval' environment
-conda deactivate
