@@ -8,6 +8,7 @@ cd F1
 ## Option 1: Run entire pipeline(one tool per stage; chosen after analysis) in 1 step .
 
 Place all reads directly in ``input_dir`` .
+Download ``bbduk.sh``.
 
 ```
 source pipeline.sh [input_dir] [output_dir]
