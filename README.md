@@ -98,7 +98,7 @@ sh velvet.sh
 Please mention all sample names in the file abyss.sh
 
  Reads are assumed to be in ``trimmed_phix_unmatched`` folder aftr QC.
- Assembled and filtered contigs will be placed in ``filteredab``.
+ Assembled and filtered contigs will be placed in ``filterab``.
 
 ```
 sh abyss.sh
