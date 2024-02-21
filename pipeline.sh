@@ -46,6 +46,8 @@ for file in "$input_dir"/*R1*; do
 	--contigs_out "$output_dir/skesa_$isolate/$isolate.fasta" \
 	1> "$output_dir/skesa_$isolate"/skesa.stdout.txt \
 	2> "$output_dir/skesa_$isolate"/skesa.stderr.txt
+	
+	conda deactivate
 
 	#filter
 	conda activate pythonold
