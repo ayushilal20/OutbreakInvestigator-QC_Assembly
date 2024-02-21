@@ -71,7 +71,7 @@ Quality Control is crucial prior to any downstream analysis [Garbage in Garbage 
 ```
 conda create -n teamf_asm -y 
 conda activate teamf_asm
-conda install bioconda::skesa bioconda::velvet bioconda::abyss bioconda::seqkit -y
+conda install bioconda::skesa bioconda::velvet bioconda::abyss=2.3.7 bioconda::seqkit -y
 ```
 ## Steps to execute: 
 
