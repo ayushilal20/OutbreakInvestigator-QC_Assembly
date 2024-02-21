@@ -8,6 +8,8 @@ isolates=("F0582884" "F0582987" "F0622946" "F0658207" \
 	"F2034395" "F2045925" "F2045928" "F2045930" \
 	"F2045932" "F2045942" "F2045945" "F2049583" \
 	"F2049584" "F2052228")
+	
+mkdir -p abyss
 
 for i in "${isolates[@]}"; do
 	abyss \
@@ -16,6 +18,8 @@ for i in "${isolates[@]}"; do
 		./trimmed_phix_unmatched/unmatched_trimmed_"$i"_R1.fq.gz \
 		./trimmed_phix_unmatched/unmatched_trimmed_"$i"_R2.fq.gz
 done
+
+mkdir -p filterab
 
 for i in "${isolates[@]}"; do
 	seqkit seq -m 500 ./abyss/"$i".fasta > ./filterab/"$i".fna
