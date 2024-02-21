@@ -18,9 +18,9 @@ sh pipeline.sh [input_dir] [output_dir]
  4. BBduk: This is used to remove the Phix contamination that might be present in the reads (https://sourceforge.net/projects/bbmap/). 
 
 ```
-conda create -n teamf
+conda create -n teamf -y 
 conda activate teamf
-conda install -c bioconda fastqc multiqc fastp bbmap
+conda install -c bioconda fastqc multiqc fastp bbmap -y
 ```
 
 ## Steps to execute: 
