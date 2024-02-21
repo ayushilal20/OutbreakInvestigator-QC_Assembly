@@ -46,8 +46,8 @@ for file in "$input_dir"/*R1*; do
 	-j "$output_dir/reports/${isolate}/${R2}_fastp.json" -z 6
 
 	#bbduk
-	sh bbduk.sh in="$output_dir/fastp/$isolate/trimmed_${R1}" out="$output_dir/bbduk/$isolate/unmatched_${R1}" outm="$output_dir/bbduk/$isolate/matched_${R1}" ref=phix k=31 hdist=1 overwrite=t stats="$output_dir/bbduk/$isolate/${R1}_stats.txt" 
-    	sh bbduk.sh in="$output_dir/fastp/$isolate/trimmed_${R2}" out="$output_dir/bbduk/$isolate/unmatched_${R2}" outm="$output_dir/bbduk/$isolate/matched_${R2}" ref=phix k=31 hdist=1 overwrite=t stats="$output_dir/bbduk/$isolate/${R2}_stats.txt" 
+	bbduk.sh in="$output_dir/fastp/$isolate/trimmed_${R1}" out="$output_dir/bbduk/$isolate/unmatched_${R1}" outm="$output_dir/bbduk/$isolate/matched_${R1}" ref=phix k=31 hdist=1 overwrite=t stats="$output_dir/bbduk/$isolate/${R1}_stats.txt" 
+    	bbduk.sh in="$output_dir/fastp/$isolate/trimmed_${R2}" out="$output_dir/bbduk/$isolate/unmatched_${R2}" outm="$output_dir/bbduk/$isolate/matched_${R2}" ref=phix k=31 hdist=1 overwrite=t stats="$output_dir/bbduk/$isolate/${R2}_stats.txt" 
 	 
 	#assembly with skesa
 	skesa \
