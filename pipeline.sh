@@ -16,6 +16,15 @@ conda deactivate
 input_dir="$1"
 output_dir="$2"
 
+#create conda env 'qual_eval' with python=3.7.12
+conda create -n qual_eval python=3.7.12 -y
+	
+# Activate the 'qual_eval' environment
+conda activate qual_eval
+
+# Install required packages
+pip install quast matplotlib
+
 for file in "$input_dir"/*R1*; do
 	R1=$(basename -- "$file")
 	R2="${filename/R1/R2}"
@@ -58,7 +67,25 @@ for file in "$input_dir"/*R1*; do
 		-i "$output_dir/skesa/$isolate/$isolate.fasta" \
 		-o "$output_dir/skesa/$isolate/filtered_$isolate.fna"
 	conda deactivate
+	
+	#quality evaluation with quast
 
-	#quality with quast
+	# Path to the directory containing the filtered assemblies
+	filtered_asm_dir="$output_dir/skesa_$isolate"
 
+	# Path to the output directory for Quast results
+	quast_output_dir="$output_dir/qual_eval"
+
+	# Create the output directory if it doesn't exist
+	mkdir -p "$quast_output_dir"
+	
+	# Run Quast for each assembly in the filtered_asm_dir
+	
+	for assembly in "$filtered_asm_dir"/*.fna; do
+		assembly_name=$(basename -- "$assembly" .fna)
+		quast.py -o "$quast_output_dir/$assembly_name" "$assembly"
+	done
 done
+
+# Deactivate the 'qual_eval' environment
+conda deactivate
