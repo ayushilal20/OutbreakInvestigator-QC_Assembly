@@ -26,7 +26,7 @@ output_dir="$2"
 
 for file in "$input_dir"/*R1*; do
 	R1=$(basename -- "$file")
-	R2="${filename/R1/R2}"
+	R2="${R1/R1/R2}"
 	# isolate name saved as $isolate
 	isolate="${R1:0:8}"
 
