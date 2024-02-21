@@ -5,7 +5,7 @@
 Place all reads directly in ``input_dir`` .
 
 ```
-sh pipeline.sh [input_dir] [output_dir]
+source pipeline.sh [input_dir] [output_dir]
 ```
 ## Option2: Run individual steps, with multiple tools at each step.
 
